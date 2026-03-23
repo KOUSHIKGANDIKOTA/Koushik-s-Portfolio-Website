@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://KOUSHIKGANDIKOTA.github.io/Koushik-s-Portfolio-Website",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
