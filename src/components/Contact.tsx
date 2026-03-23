@@ -36,7 +36,7 @@ const Contact = () => {
               Linkedin <MdArrowOutward />
             </a>
             <a
-              href="#"
+              href=""
               target="_blank"
               data-cursor="disable"
               className="contact-social"
@@ -44,7 +44,7 @@ const Contact = () => {
               Twitter <MdArrowOutward />
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/i3eing_koushikkk___"
               target="_blank"
               data-cursor="disable"
               className="contact-social"

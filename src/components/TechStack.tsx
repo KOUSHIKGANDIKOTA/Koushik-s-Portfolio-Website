@@ -13,7 +13,7 @@ import {
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
-  "/images/react2.webp",
+  ""D: \Binny wallpapers\spider verse\6790591.jpg"",
   "/images/next2.webp",
   "/images/node2.webp",
   "/images/express.webp",
