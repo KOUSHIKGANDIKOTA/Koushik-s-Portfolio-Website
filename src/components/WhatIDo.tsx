@@ -29,9 +29,8 @@ const WhatIDo = () => {
       <div className="what-box">
         <h2 className="title">
           W<span className="hat-h2">HAT</span>
-          <div>
-            I<span className="do-h2"> DO</span>
-          </div>
+          <br />
+          I<span className="do-h2"> DO</span>
         </h2>
       </div>
       <div className="what-box">
@@ -129,7 +128,7 @@ const WhatIDo = () => {
               <h3>MLOPS & DATA</h3>
               <h4>Scalable AI Pipelines</h4>
               <p>
-                Orchestrating scalable machine learning pipelines, ensuring robust cloud integration, 
+                Orchestrating scalable machine learning pipelines, ensuring robust cloud integration,
                 and performing in-depth data visualization.
               </p>
               <h5>Skillset & tools</h5>

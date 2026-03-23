@@ -13,14 +13,14 @@ import {
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
-  ""D: \Binny wallpapers\spider verse\6790591.jpg"",
-  "/images/next2.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
-  "/images/mongo.webp",
-  "/images/mysql.webp",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
+  "/images/git.png",
+  "/images/tensorflow.png",
+  "/images/pandas.png",
+  "/images/github.png",
+  "/images/docker.png",
+  "/images/pytorch.png",
+  "/images/scikit.png",
+  "/images/keras.png",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 

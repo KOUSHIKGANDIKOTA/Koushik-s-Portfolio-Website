@@ -8,25 +8,25 @@ const projects = [
     title: "JESSIE – AI Agent",
     category: "AI, Generative AI",
     tools: "LLMs, NLP, Selenium, PyQt5",
-    image: "/images/Solidx.png",
+    image: "/images/jessie.png",
   },
   {
     title: "RAG Chatbot",
     category: "Information Retrieval",
     tools: "LangChain, HuggingFace, FAISS",
-    image: "/images/radix.png",
+    image: "/images/rag.png",
   },
   {
     title: "RL Algorithms Analysis",
     category: "Machine Learning",
     tools: "Q-Learning, PPO, SARSA, DQN",
-    image: "/images/bond.png",
+    image: "/images/rl.png",
   },
   {
     title: "Fashion MNIST Classification",
     category: "Computer Vision",
     tools: "CNN, Batch Normalisation",
-    image: "/images/sapphire.png",
+    image: "/images/mnist.png",
   },
 ];
 
