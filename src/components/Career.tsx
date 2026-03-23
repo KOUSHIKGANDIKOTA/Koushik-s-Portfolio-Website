@@ -34,7 +34,8 @@ const Career = () => {
               <h3>2024</h3>
             </div>
             <p>
-              M.Sc Coursework: AI, Deep Learning, NLP, Computer Vision, AI Ethics, MLOps.
+              M.Sc Coursework:
+              <br />AI, Deep Learning, NLP, Computer Vision, AI Ethics, MLOps.
             </p>
           </div>
           <div className="career-info-box">
