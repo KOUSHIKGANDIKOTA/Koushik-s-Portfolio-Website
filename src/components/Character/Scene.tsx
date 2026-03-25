@@ -17,11 +17,12 @@ const Scene = () => {
   const canvasDiv = useRef<HTMLDivElement | null>(null);
   const hoverDivRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef(new THREE.Scene());
-  const { setLoading } = useLoading();
+  const { setIsLoading, setLoading } = useLoading();
 
   const [character, setChar] = useState<THREE.Object3D | null>(null);
   useEffect(() => {
     if (canvasDiv.current) {
+      let cancelled = false;
       let rect = canvasDiv.current.getBoundingClientRect();
       let container = { width: rect.width, height: rect.height };
       const aspect = container.width / container.height;
@@ -46,6 +47,7 @@ const Scene = () => {
       let headBone: THREE.Object3D | null = null;
       let screenLight: any | null = null;
       let mixer: THREE.AnimationMixer;
+      let loadedCharacter: THREE.Object3D | null = null;
 
       const clock = new THREE.Clock();
 
@@ -53,27 +55,57 @@ const Scene = () => {
       let progress = setProgress((value) => setLoading(value));
       const { loadCharacter } = setCharacter(renderer, scene, camera);
 
-      loadCharacter().then((gltf) => {
-        if (gltf) {
+      loadCharacter()
+        .then((gltf) => {
+          if (cancelled) return;
+          if (!gltf) {
+            setLoading(100);
+            setIsLoading(false);
+            return;
+          }
+
           const animations = setAnimations(gltf);
           hoverDivRef.current && animations.hover(gltf, hoverDivRef.current);
           mixer = animations.mixer;
-          let character = gltf.scene;
-          setChar(character);
-          scene.add(character);
-          headBone = character.getObjectByName("spine006") || null;
-          screenLight = character.getObjectByName("screenlight") || null;
+
+          const nextCharacter = gltf.scene;
+          loadedCharacter = nextCharacter;
+          setChar(nextCharacter);
+          scene.add(nextCharacter);
+          headBone = nextCharacter.getObjectByName("spine006") || null;
+          screenLight = nextCharacter.getObjectByName("screenlight") || null;
+
+          const onResize = () => {
+            if (!loadedCharacter) return;
+            handleResize(renderer, camera, canvasDiv, loadedCharacter);
+          };
+
+          window.addEventListener("resize", onResize);
+
           progress.loaded().then(() => {
+            if (cancelled) return;
             setTimeout(() => {
+              if (cancelled) return;
               light.turnOnLights();
               animations.startIntro();
             }, 2500);
           });
-          window.addEventListener("resize", () =>
-            handleResize(renderer, camera, canvasDiv, character)
-          );
-        }
-      });
+
+          // Store handler on renderer so cleanup can remove it.
+          // (Avoids needing to re-declare the exact same function in cleanup.)
+          (renderer as any).__onResize = onResize;
+        })
+        .catch((err) => {
+          console.error("Character/model load failed:", err);
+          try {
+            progress.clear?.();
+          } catch {
+            // no-op; best-effort cleanup
+          }
+          if (cancelled) return;
+          setLoading(100);
+          setIsLoading(false);
+        });
 
       let mouse = { x: 0, y: 0 },
         interpolation = { x: 0.1, y: 0.2 };
@@ -127,12 +159,13 @@ const Scene = () => {
       };
       animate();
       return () => {
+        cancelled = true;
+
         clearTimeout(debounce);
         scene.clear();
         renderer.dispose();
-        window.removeEventListener("resize", () =>
-          handleResize(renderer, camera, canvasDiv, character!)
-        );
+        const onResize = (renderer as any).__onResize;
+        if (onResize) window.removeEventListener("resize", onResize);
         if (canvasDiv.current) {
           canvasDiv.current.removeChild(renderer.domElement);
         }
