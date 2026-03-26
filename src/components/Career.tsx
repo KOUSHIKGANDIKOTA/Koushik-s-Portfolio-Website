@@ -16,7 +16,7 @@ const Career = () => {
             <div className="career-info-in">
               <div className="career-role">
                 <h4>Data Handling Intern</h4>
-                <h5>LOGEsoft GmbH</h5>
+                <h5>LOGEsoft GmbH    (Cottbus, Germany)</h5>
               </div>
               <h3>2025</h3>
             </div>
@@ -29,7 +29,7 @@ const Career = () => {
               <div className="career-role">
                 <h4>Master's in
                   <br />Artificial Intelligence</h4>
-                <h5>BTU Cottbus-Senftenberg</h5>
+                <h5>BTU Cottbus-Senftenberg, Germany</h5>
               </div>
               <h3>2024</h3>
             </div>
@@ -42,7 +42,7 @@ const Career = () => {
             <div className="career-info-in">
               <div className="career-role">
                 <h4>AI-Web Engineering Intern</h4>
-                <h5>Varcons Technologies</h5>
+                <h5>Varcons Technologies (Bengaluru, India)</h5>
               </div>
               <h3>2024</h3>
             </div>
@@ -55,7 +55,7 @@ const Career = () => {
               <div className="career-role">
                 <h4>Bachelor's in
                   <br />Artificial Intelligence & Machine Learning</h4>
-                <h5>Visvesvaraya Technological University</h5>
+                <h5>Visvesvaraya Technological University (Bangalore, India)</h5>
               </div>
               <h3>2020</h3>
             </div>
