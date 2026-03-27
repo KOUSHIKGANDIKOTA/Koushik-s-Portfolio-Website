@@ -1,5 +1,14 @@
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedinIn,
+  FaXTwitter,
+} from "react-icons/fa6";
 import { MdArrowOutward, MdCopyright } from "react-icons/md";
 import "./styles/Contact.css";
+
+const LINKEDIN_URL =
+  "https://www.linkedin.com/in/koushik-gandikota-117211283";
 
 const Contact = () => {
   return (
@@ -22,34 +31,54 @@ const Contact = () => {
             <a
               href="https://github.com/KOUSHIKGANDIKOTA"
               target="_blank"
+              rel="noopener noreferrer"
               data-cursor="disable"
               className="contact-social"
             >
-              Github <MdArrowOutward />
+              <span className="contact-social-icon" aria-hidden>
+                <FaGithub />
+              </span>
+              <span className="contact-social-label">Github</span>
+              <MdArrowOutward />
             </a>
             <a
-              href="https://www.linkedin.com/in/koushikgandikota"
+              href={LINKEDIN_URL}
               target="_blank"
+              rel="noopener noreferrer"
               data-cursor="disable"
               className="contact-social"
             >
-              Linkedin <MdArrowOutward />
+              <span className="contact-social-icon" aria-hidden>
+                <FaLinkedinIn />
+              </span>
+              <span className="contact-social-label">LinkedIn</span>
+              <MdArrowOutward />
             </a>
             <a
-              href=""
-              target="_blank"
+              href="#"
               data-cursor="disable"
-              className="contact-social"
+              className="contact-social contact-social--disabled"
+              onClick={(e) => e.preventDefault()}
+              aria-label="Twitter (link coming soon)"
             >
-              Twitter <MdArrowOutward />
+              <span className="contact-social-icon" aria-hidden>
+                <FaXTwitter />
+              </span>
+              <span className="contact-social-label">Twitter</span>
+              <MdArrowOutward />
             </a>
             <a
               href="https://www.instagram.com/i3eing_koushikkk___"
               target="_blank"
+              rel="noopener noreferrer"
               data-cursor="disable"
               className="contact-social"
             >
-              Instagram <MdArrowOutward />
+              <span className="contact-social-icon" aria-hidden>
+                <FaInstagram />
+              </span>
+              <span className="contact-social-label">Instagram</span>
+              <MdArrowOutward />
             </a>
           </div>
           <div className="contact-box">

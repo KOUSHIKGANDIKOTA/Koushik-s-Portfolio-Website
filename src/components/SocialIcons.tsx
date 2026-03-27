@@ -65,17 +65,25 @@ const SocialIcons = () => {
           </a>
         </span>
         <span>
-          <a href="https://www.linkedin.com/in/koushikgandikota" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/koushik-gandikota-117211283"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaLinkedinIn />
           </a>
         </span>
         <span>
-          <a href="#" target="_blank">
+          <a href="#" target="_blank" rel="noopener noreferrer">
             <FaXTwitter />
           </a>
         </span>
         <span>
-          <a href="https://www.instagram.com/i3eing_koushikkk___/" target="_blank">
+          <a
+            href="https://www.instagram.com/i3eing_koushikkk___/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaInstagram />
           </a>
         </span>
